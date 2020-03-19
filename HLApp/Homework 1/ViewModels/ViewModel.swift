@@ -6,7 +6,8 @@
 //  Copyright © 2020 destplay. All rights reserved.
 //
 
-import UIKit
+import Combine
+import Foundation
 
 struct Video: Identifiable {
     var id = UUID()
@@ -20,9 +21,7 @@ class ViewModel: ObservableObject {
                           Video(name: "WWDC 2018 Keynote — Apple", description: "Apple WWDC 2018. Four OS updates. One big day. Take a look at updates for iPhone and iPad, Mac, Apple Watch, and Apple TV.", preview: "PreviewTwo"),
                           Video(name: "Apple — WWDC 2017 Keynote", description: "Apple WWDC 2017. Take a look at our latest announcements. The new iPad Pro. iMac Pro. HomePod. iOS 11. macOS High Sierra. watchOS 4. ", preview: "PreviewThree")]
     
-    var selectedTab: RootView.Tab = .segue {
-        willSet { self.objectWillChange.send() }
-    }
+    @Published var selectedTab: RootView.Tab = .segue
     
-    var openFirstCell: Bool = false
+    @Published var openFirstCell: Bool = false
 }

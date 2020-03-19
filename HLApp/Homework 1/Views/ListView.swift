@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ListView: View { 
     
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
@@ -35,7 +35,7 @@ struct VideoCell: View {
     @State var isOpen: Bool
     
     var body: some View {
-        return NavigationLink(destination: DetailVideoView(video: video), isActive: $isOpen) {
+        return NavigationLink(destination: DetailVideoView(video: self.video), isActive: $isOpen) {
             Image(uiImage: UIImage(named: self.video.preview)!).resizable().scaledToFit().frame(width: 134.0, height: 100.0)
             VStack(alignment: .leading) {
                 Text(self.video.name)
@@ -69,6 +69,6 @@ struct DetailVideoView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(viewModel: ViewModel())
+        ListView().environmentObject(ViewModel())
     }
 }

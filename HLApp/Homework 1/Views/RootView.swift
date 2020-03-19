@@ -10,17 +10,17 @@ import SwiftUI
 
 struct RootView: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         TabView(selection: self.$viewModel.selectedTab) {
-            SegueView(viewModel: self.viewModel)
+            SegueView().environmentObject(viewModel)
                 .tabItem {
                     Image(systemName: "arrow.right.to.line.alt")
                     Text("Segue")
                 }
                 .tag(RootView.Tab.segue)
-            ListView(viewModel: self.viewModel)
+            ListView().environmentObject(viewModel)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("List")
@@ -46,10 +46,7 @@ extension RootView {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            RootView(viewModel: ViewModel())
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
+
+        RootView().environmentObject(ViewModel())
     }
 }

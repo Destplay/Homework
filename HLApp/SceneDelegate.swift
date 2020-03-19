@@ -20,16 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let rootView = RootView(viewModel: ViewModel()).environment(\.managedObjectContext, context)
+        
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //let startView = RootView().environmentObject(ViewModel()).environment(\.managedObjectContext, context)
+        
+        let startView = NewsView().environmentObject(NewsViewModel())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: rootView)
+            window.rootViewController = UIHostingController(rootView: startView)
             self.window = window
             window.makeKeyAndVisible()
         }

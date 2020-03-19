@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SegueView: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         VStack {
@@ -26,6 +26,6 @@ struct SegueView: View {
 
 struct SegueView_Previews: PreviewProvider {
     static var previews: some View {
-        SegueView(viewModel: ViewModel())
+        SegueView().environmentObject(ViewModel())
     }
 }
