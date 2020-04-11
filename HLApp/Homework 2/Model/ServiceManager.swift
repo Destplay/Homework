@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 class ServiceManager {
-    
     private var url = "http://newsapi.org/v2/top-headlines"
     
     func requestService<P: Encodable, R: Decodable>(paramenters: P, handler: @escaping (R) -> ()) {
