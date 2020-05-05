@@ -6,6 +6,7 @@
 //  Copyright © 2020 destplay. All rights reserved.
 //
 import SwiftUI
+import MyLibraryUI
 
 struct TidingsView: View {
     @EnvironmentObject var viewModel: TidingsViewModel

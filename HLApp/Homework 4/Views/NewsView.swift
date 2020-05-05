@@ -7,10 +7,11 @@
 //
 
 import SwiftUI
+import MyLibraryUI
 
 enum CategoryType: String {
     case business = "business"
-    case sports = "sports"
+    case sports = "sports" 
     case technology = "technology"
 }
 
