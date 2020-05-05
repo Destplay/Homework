@@ -24,12 +24,12 @@
 		6456B566240C8FFD00609F0F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B565240C8FFD00609F0F /* ListView.swift */; };
 		6456B569240C904400609F0F /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B568240C904400609F0F /* ModalView.swift */; };
 		6456B56E2410B5C600609F0F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B56D2410B5C600609F0F /* ViewModel.swift */; };
+		648C8BFE246147EF00F21627 /* MyLibraryUI in Frameworks */ = {isa = PBXBuildFile; productRef = 648C8BFD246147EF00F21627 /* MyLibraryUI */; };
 		649A8D2A2423ADD0003F3B65 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649A8D292423ADD0003F3B65 /* NavController.swift */; };
 		649C15D2241DE2C200005DB8 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649C15D1241DE2C200005DB8 /* NewsView.swift */; };
 		649C15D9241E1DC000005DB8 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649C15D8241E1DC000005DB8 /* NewsViewModel.swift */; };
 		649C15DB2420CEFA00005DB8 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649C15DA2420CEFA00005DB8 /* ServiceManager.swift */; };
 		649EFB71242B74740082D57E /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EFB70242B74740082D57E /* ServiceLocator.swift */; };
-		64A7E355246109C500F09B13 /* MyLibraryUI in Frameworks */ = {isa = PBXBuildFile; productRef = 64A7E354246109C500F09B13 /* MyLibraryUI */; };
 		64BAEF2C2440943D0010131C /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAEF1B2440943D0010131C /* APIHelper.swift */; };
 		64BAEF2D2440943D0010131C /* URLSessionImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAEF1C2440943D0010131C /* URLSessionImplementations.swift */; };
 		64BAEF2E2440943D0010131C /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAEF1E2440943D0010131C /* NewsAPI.swift */; };
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64A7E355246109C500F09B13 /* MyLibraryUI in Frameworks */,
+				648C8BFE246147EF00F21627 /* MyLibraryUI in Frameworks */,
 				64BAEF3D244095440010131C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +355,7 @@
 			name = HLApp;
 			packageProductDependencies = (
 				64BAEF3C244095440010131C /* Alamofire */,
-				64A7E354246109C500F09B13 /* MyLibraryUI */,
+				648C8BFD246147EF00F21627 /* MyLibraryUI */,
 			);
 			productName = HLApp;
 			productReference = 6456B539240C8DF600609F0F /* HLApp.app */;
@@ -409,7 +409,7 @@
 			mainGroup = 6456B530240C8DF600609F0F;
 			packageReferences = (
 				64BAEF3B244095440010131C /* XCRemoteSwiftPackageReference "Alamofire" */,
-				64A7E353246109C500F09B13 /* XCRemoteSwiftPackageReference "MyLibraryUI" */,
+				648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */,
 			);
 			productRefGroup = 6456B53A240C8DF600609F0F /* Products */;
 			projectDirPath = "";
@@ -743,7 +743,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64A7E353246109C500F09B13 /* XCRemoteSwiftPackageReference "MyLibraryUI" */ = {
+		648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Destplay/MyLibraryUI.git";
 			requirement = {
@@ -762,9 +762,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		64A7E354246109C500F09B13 /* MyLibraryUI */ = {
+		648C8BFD246147EF00F21627 /* MyLibraryUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 64A7E353246109C500F09B13 /* XCRemoteSwiftPackageReference "MyLibraryUI" */;
+			package = 648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */;
 			productName = MyLibraryUI;
 		};
 		64BAEF3C244095440010131C /* Alamofire */ = {

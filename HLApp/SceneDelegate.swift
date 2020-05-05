@@ -28,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //let startView = RootView().environmentObject(ViewModel()).environment(\.managedObjectContext, context)
         
         
-        //let startView = NewsView().environmentObject(NewsViewModel())
+        let startView = NewsView().environmentObject(NewsViewModel())
         
-        let startView = TidingsView().environmentObject(ServiceLocator.shared.getTidingsViewModel())
+        //let startView = TidingsView().environmentObject(ServiceLocator.shared.getTidingsViewModel())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
