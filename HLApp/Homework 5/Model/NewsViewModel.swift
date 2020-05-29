@@ -26,19 +26,19 @@ struct NewsModelRequest: Encodable {
     }
 }
 
-struct NewsModelResponse: Decodable {
+struct NewsModelResponse: Codable {
     let status: String
     let totalResults: Int?
     let articles: [Article]?
     
-    struct Article: Decodable {
+    struct Article: Codable {
         let source: Source?
         let title, articleDescription: String?
         let url, urlToImage: String?
         let publishedAt: String?
         let content: String?
         
-        struct Source: Decodable {
+        struct Source: Codable {
             let name: String
         }
         
@@ -96,12 +96,25 @@ class NewsViewModel: ObservableObject {
         var parameters = NewsModelRequest(category: self.category)
         parameters.page = self.page
         self.isPaginationUpdate = true
-        ServiceManager().requestService(paramenters: parameters, handler: { [weak self] (model: NewsModelResponse) in
+        ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
             guard let self = self else { return }
             self.isPaginationUpdate = false
             guard let articles = model.articles else { return }
             self.content.append(contentsOf: self.mapping(news: articles))
+        }, failure: { (error: NSError) in
+            print(error)
         })
+    }
+    
+    func uploadLocalContent() {
+        self.content.removeAll()
+        let filesManager = FilesManager.shared
+        if let model = filesManager.loadFile(name: category.rawValue, type: NewsModelResponse.self) {
+            guard let articles = model.articles else { return }
+            self.content = self.mapping(news: articles)
+            print(self.content)
+        }
+        self.isAllUpdate = false
     }
     
     private func mapping(news: [NewsModelResponse.Article]) -> [NewsModelUI] {
@@ -113,12 +126,15 @@ class NewsViewModel: ObservableObject {
         let parameters = NewsModelRequest(category: self.category)
         self.isAllUpdate = true
         self.page = 0
-        ServiceManager().requestService(paramenters: parameters, handler: { [weak self] (model: NewsModelResponse) in
+        ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
+            let filesManager = FilesManager.shared
+            filesManager.saveFile(name: self?.category.rawValue ?? "Cache", content: model)
             guard let self = self else { return }
-            self.isAllUpdate = false
-            guard let articles = model.articles else { return }
-            self.content = self.mapping(news: articles)
+            self.uploadLocalContent()
             self.page += self.page
+        }, failure: { [weak self] (error: NSError) in
+            self?.uploadLocalContent()
+            print(error)
         })
     }
     

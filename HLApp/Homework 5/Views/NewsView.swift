@@ -21,7 +21,16 @@ struct NewsView: View {
     var body: some View {
         NavControllerView(transition: .custom(.opacity)) {
             VStack {
-                Text("News").font(.headline).padding(.top)
+                HStack {
+                    Spacer().frame(minWidth: 0, maxWidth: .infinity)
+                    Text("News").font(.headline).padding(.horizontal).frame(minWidth: 0, maxWidth: .infinity)
+                    Button(action: {
+                        self.viewModel.uploadLocalContent()
+                    }, label: {
+                        Text("Load from File")
+                    }).padding(.trailing)
+                }
+                
                 Picker("", selection: self.$viewModel.category) {
                     ForEach(self.viewModel.categories) { category in
                         Text(category.name).tag(category.type)
