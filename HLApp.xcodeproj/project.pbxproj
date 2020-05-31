@@ -12,6 +12,9 @@
 		6427AB932430B7C60075AC9F /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6427AB922430B7C60075AC9F /* Parsing.swift */; };
 		6427AB992430D52F0075AC9F /* TidingsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6427AB982430D52F0075AC9F /* TidingsServices.swift */; };
 		6427AB9B2430DDC40075AC9F /* TidingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6427AB9A2430DDC40075AC9F /* TidingsViewModel.swift */; };
+		6435B3BA24814CDC0005A617 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435B3B924814CDC0005A617 /* DataBaseManager.swift */; };
+		6435B3CE248155970005A617 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6435B3CD248155970005A617 /* RealmSwift */; };
+		6435B3D0248155EE0005A617 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435B3CF248155EE0005A617 /* NewsModel.swift */; };
 		6456B53D240C8DF600609F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B53C240C8DF600609F0F /* AppDelegate.swift */; };
 		6456B53F240C8DF600609F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B53E240C8DF600609F0F /* SceneDelegate.swift */; };
 		6456B542240C8DF600609F0F /* HLApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6456B540240C8DF600609F0F /* HLApp.xcdatamodeld */; };
@@ -65,6 +68,8 @@
 		6427AB922430B7C60075AC9F /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		6427AB982430D52F0075AC9F /* TidingsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidingsServices.swift; sourceTree = "<group>"; };
 		6427AB9A2430DDC40075AC9F /* TidingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidingsViewModel.swift; sourceTree = "<group>"; };
+		6435B3B924814CDC0005A617 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		6435B3CF248155EE0005A617 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		6456B539240C8DF600609F0F /* HLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6456B53C240C8DF600609F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6456B53E240C8DF600609F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6435B3CE248155970005A617 /* RealmSwift in Frameworks */,
 				648C8BFE246147EF00F21627 /* MyLibraryUI in Frameworks */,
 				64BAEF3D244095440010131C /* Alamofire in Frameworks */,
 			);
@@ -248,9 +254,11 @@
 		649A8D312423D7EF003F3B65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6435B3CF248155EE0005A617 /* NewsModel.swift */,
 				649C15D8241E1DC000005DB8 /* NewsViewModel.swift */,
 				649C15DA2420CEFA00005DB8 /* ServiceManager.swift */,
 				64FF2FD6248106CA003D1D31 /* FilesManager.swift */,
+				6435B3B924814CDC0005A617 /* DataBaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +367,7 @@
 			packageProductDependencies = (
 				64BAEF3C244095440010131C /* Alamofire */,
 				648C8BFD246147EF00F21627 /* MyLibraryUI */,
+				6435B3CD248155970005A617 /* RealmSwift */,
 			);
 			productName = HLApp;
 			productReference = 6456B539240C8DF600609F0F /* HLApp.app */;
@@ -413,6 +422,7 @@
 			packageReferences = (
 				64BAEF3B244095440010131C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */,
+				6435B3CC248155970005A617 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 6456B53A240C8DF600609F0F /* Products */;
 			projectDirPath = "";
@@ -461,6 +471,8 @@
 				6456B53D240C8DF600609F0F /* AppDelegate.swift in Sources */,
 				6427AB9B2430DDC40075AC9F /* TidingsViewModel.swift in Sources */,
 				64BAEF362440943D0010131C /* JSONDataEncoding.swift in Sources */,
+				6435B3D0248155EE0005A617 /* NewsModel.swift in Sources */,
+				6435B3BA24814CDC0005A617 /* DataBaseManager.swift in Sources */,
 				64BAEF302440943D0010131C /* APIs.swift in Sources */,
 				64BAEF392440943D0010131C /* SynchronizedDictionary.swift in Sources */,
 				64BAEF342440943D0010131C /* Article.swift in Sources */,
@@ -747,6 +759,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6435B3CC248155970005A617 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Destplay/MyLibraryUI.git";
@@ -766,6 +786,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6435B3CD248155970005A617 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6435B3CC248155970005A617 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		648C8BFD246147EF00F21627 /* MyLibraryUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 648C8BFC246147EF00F21627 /* XCRemoteSwiftPackageReference "MyLibraryUI" */;

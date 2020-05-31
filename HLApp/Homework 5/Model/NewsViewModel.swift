@@ -9,68 +9,6 @@
 import Combine
 import UIKit
 
-struct NewsModelRequest: Encodable {
-    let apiKey = "57e295f42ac141a8a5635c78c65bc4cf"
-    var country = "us"
-    var category = "business"
-    var page = 1
-    var pageSize = 7
-    
-    init(country: String? = "us", category: CategoryType) {
-        self.country = country ?? "us"
-        self.category = category.rawValue
-    }
-    
-    mutating func setPage(value: Int) {
-        self.page = value
-    }
-}
-
-struct NewsModelResponse: Codable {
-    let status: String
-    let totalResults: Int?
-    let articles: [Article]?
-    
-    struct Article: Codable {
-        let source: Source?
-        let title, articleDescription: String?
-        let url, urlToImage: String?
-        let publishedAt: String?
-        let content: String?
-        
-        struct Source: Codable {
-            let name: String
-        }
-        
-        enum CodingKeys: String, CodingKey {
-            case source, title
-            case articleDescription = "description"
-            case url, urlToImage, publishedAt, content
-        }
-    }
-}
-
-struct NewsModelUI: Identifiable {
-    var id = UUID()
-    var title: String
-    var description: String
-    var image: String
-    var content: String
-    
-    init(item: NewsModelResponse.Article) {
-        self.title = item.title ?? ""
-        self.description = item.articleDescription ?? ""
-        self.image = item.urlToImage ?? ""
-        self.content = item.content ?? item.articleDescription ?? ""
-    }
-}
-
-struct Category: Identifiable {
-    var id = UUID()
-    var name: String
-    var type: CategoryType
-}
-
 class NewsViewModel: ObservableObject {
     @Published var content = [NewsModelUI]()
     @Published var category: CategoryType = .sports {
@@ -99,8 +37,7 @@ class NewsViewModel: ObservableObject {
         ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
             guard let self = self else { return }
             self.isPaginationUpdate = false
-            guard let articles = model.articles else { return }
-            self.content.append(contentsOf: self.mapping(news: articles))
+            self.content.append(contentsOf: self.mapping(news: model.getArticles()))
         }, failure: { (error: NSError) in
             print(error)
         })
@@ -108,16 +45,14 @@ class NewsViewModel: ObservableObject {
     
     func uploadLocalContent() {
         self.content.removeAll()
-        let filesManager = FilesManager.shared
-        if let model = filesManager.loadFile(name: category.rawValue, type: NewsModelResponse.self) {
-            guard let articles = model.articles else { return }
-            self.content = self.mapping(news: articles)
-            print(self.content)
+        let dataBaseManager = DataBaseManager.shared
+        if let model = dataBaseManager.loadDataBase(predicate: "category = '\(self.category.rawValue)'", type: NewsModelResponse.self) {
+            self.content = self.mapping(news: model.getArticles())
         }
         self.isAllUpdate = false
     }
     
-    private func mapping(news: [NewsModelResponse.Article]) -> [NewsModelUI] {
+    private func mapping(news: [ArticleItem]) -> [NewsModelUI] {
         
         return news.compactMap { NewsModelUI(item: $0) }
     }
@@ -127,8 +62,9 @@ class NewsViewModel: ObservableObject {
         self.isAllUpdate = true
         self.page = 0
         ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
-            let filesManager = FilesManager.shared
-            filesManager.saveFile(name: self?.category.rawValue ?? "Cache", content: model)
+            let dataBaseManager = DataBaseManager.shared
+            model.category = self?.category.rawValue
+            dataBaseManager.saveDataBase(content: model)
             guard let self = self else { return }
             self.uploadLocalContent()
             self.page += self.page
