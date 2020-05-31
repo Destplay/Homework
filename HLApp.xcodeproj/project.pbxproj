@@ -190,7 +190,7 @@
 			children = (
 				649C15CF241DE26300005DB8 /* Homework 1 */,
 				649EFB6F242B6CB10082D57E /* Homework 3 */,
-				649C15DC2420D66100005DB8 /* Homework 5 */,
+				649C15DC2420D66100005DB8 /* Homework 6 */,
 				6456B53C240C8DF600609F0F /* AppDelegate.swift */,
 				6456B53E240C8DF600609F0F /* SceneDelegate.swift */,
 				6456B545240C8DF700609F0F /* Assets.xcassets */,
@@ -291,14 +291,14 @@
 			path = "Homework 1";
 			sourceTree = "<group>";
 		};
-		649C15DC2420D66100005DB8 /* Homework 5 */ = {
+		649C15DC2420D66100005DB8 /* Homework 6 */ = {
 			isa = PBXGroup;
 			children = (
 				649A8D2F2423D768003F3B65 /* Customs */,
 				649A8D302423D7A8003F3B65 /* Views */,
 				649A8D312423D7EF003F3B65 /* Model */,
 			);
-			path = "Homework 5";
+			path = "Homework 6";
 			sourceTree = "<group>";
 		};
 		649EFB6F242B6CB10082D57E /* Homework 3 */ = {
