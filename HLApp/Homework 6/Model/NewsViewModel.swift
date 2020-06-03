@@ -7,7 +7,7 @@
 //
 
 import Combine
-import UIKit
+import Foundation
 
 class NewsViewModel: ObservableObject {
     @Published var content = [NewsModelUI]()
