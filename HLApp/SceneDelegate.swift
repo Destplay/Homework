@@ -28,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //let startView = RootView().environmentObject(ViewModel()).environment(\.managedObjectContext, context)
         
         
-        //let startView = NewsView().environmentObject(NewsViewModel())
+        let startView = NewsView().environmentObject(NewsViewModel())
         
-        let startView = INNUIView().environmentObject(INNViewModel())
+        //let startView = INNUIView().environmentObject(INNViewModel())
         
         //let startView = TidingsView().environmentObject(ServiceLocator.shared.getTidingsViewModel())
 

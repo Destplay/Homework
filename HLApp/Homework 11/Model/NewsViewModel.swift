@@ -37,7 +37,8 @@ class NewsViewModel: ObservableObject {
         ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
             guard let self = self else { return }
             self.isPaginationUpdate = false
-            self.content.append(contentsOf: self.mapping(news: model.getArticles()))
+            guard let articles = model.articles else { return }
+            self.content.append(contentsOf: self.mapping(news: articles))
         }, failure: { (error: NSError) in
             print(error)
         })
@@ -45,14 +46,16 @@ class NewsViewModel: ObservableObject {
     
     func uploadLocalContent() {
         self.content.removeAll()
-        let dataBaseManager = DataBaseManager.shared
-        if let model = dataBaseManager.loadDataBase(predicate: "category = '\(self.category.rawValue)'", type: NewsModelResponse.self) {
-            self.content = self.mapping(news: model.getArticles())
+        let filesManager = FilesManager.shared
+        if let model = filesManager.loadFile(name: category.rawValue, type: NewsModelResponse.self) {
+            guard let articles = model.articles else { return }
+            self.content = self.mapping(news: articles)
+            print(self.content)
         }
         self.isAllUpdate = false
     }
     
-    private func mapping(news: [ArticleItem]) -> [NewsModelUI] {
+    private func mapping(news: [NewsModelResponse.Article]) -> [NewsModelUI] {
         
         return news.compactMap { NewsModelUI(item: $0) }
     }
@@ -62,9 +65,8 @@ class NewsViewModel: ObservableObject {
         self.isAllUpdate = true
         self.page = 0
         ServiceManager().requestService(paramenters: parameters, successful: { [weak self] (model: NewsModelResponse) in
-            let dataBaseManager = DataBaseManager.shared
-            model.category = self?.category.rawValue
-            dataBaseManager.saveDataBase(content: model)
+            let filesManager = FilesManager.shared
+            filesManager.saveFile(name: self?.category.rawValue ?? "Cache", content: model)
             guard let self = self else { return }
             self.uploadLocalContent()
             self.page += self.page

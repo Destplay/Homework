@@ -33,7 +33,7 @@ struct NewsModelUI: Identifiable {
     var image: String
     var content: String
     
-    init(item: ArticleItem) {
+    init(item: NewsModelResponse.Article) {
         self.title = item.title ?? ""
         self.description = item.articleDescription ?? ""
         self.image = item.urlToImage ?? ""
@@ -47,37 +47,27 @@ struct Category: Identifiable {
     var type: CategoryType
 }
 
-class NewsModelResponse: Object, Codable {
-    @objc dynamic var status: String?
-    @objc dynamic var totalResults: Int = 0
-    @objc dynamic var category: String?
-    var articles = List<ArticleItem>()
+struct NewsModelResponse: Codable {
+    let status: String
+    let totalResults: Int?
+    let articles: [Article]?
     
-    override class func primaryKey() -> String? {
-        return "category"
-    }
-    
-    func getArticles() -> [ArticleItem] {
-        self.articles.compactMap( { $0 } )
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case status, totalResults, articles
-    }
-    
-}
-
-class ArticleItem: Object, Codable {
-    @objc dynamic var source: Source?
-    @objc dynamic var title, articleDescription: String?
-    @objc dynamic var url, urlToImage: String?
-    @objc dynamic var publishedAt: String?
-    @objc dynamic var content: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case source, title
-        case articleDescription = "description"
-        case url, urlToImage, publishedAt, content
+    struct Article: Codable {
+        let source: Source?
+        let title, articleDescription: String?
+        let url, urlToImage: String?
+        let publishedAt: String?
+        let content: String?
+        
+        struct Source: Codable {
+            let name: String
+        }
+        
+        enum CodingKeys: String, CodingKey {
+            case source, title
+            case articleDescription = "description"
+            case url, urlToImage, publishedAt, content
+        }
     }
 }
 
