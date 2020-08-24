@@ -61,7 +61,7 @@ struct NavPushButton<Label, Destination>: View where Label: View, Destination: V
     var body: some View {
         label.onTapGesture {
             self.push()
-        }
+        }.accessibility(identifier: "button")
     }
     
     private func push() {

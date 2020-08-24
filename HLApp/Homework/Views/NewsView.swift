@@ -84,7 +84,6 @@ struct DetailNewsView: View {
             NavPopButton(destination: .previous) {
                 Text("Cancel").foregroundColor(.blue).bold().padding([.leading, .top])
             }
-            
             NavPushButton(destination: ImageNewsView(image: self.news.image)) {
                 DetailImageView(withURL: self.news.image)
             }

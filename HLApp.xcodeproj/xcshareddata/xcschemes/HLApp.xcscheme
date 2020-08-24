@@ -38,6 +38,16 @@
                ReferencedContainer = "container:HLApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6479D43524F3F65800911617"
+               BuildableName = "HLAppUITests.xctest"
+               BlueprintName = "HLAppUITests"
+               ReferencedContainer = "container:HLApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

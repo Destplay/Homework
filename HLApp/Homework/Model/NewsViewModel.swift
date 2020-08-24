@@ -23,7 +23,7 @@ class NewsViewModel: ObservableObject {
     @Published var isAllUpdate: Bool = false
     @Published var isPaginationUpdate: Bool = false
     
-    private var page: Int = 0
+    var page: Int = 0
     
     init() {
         self.fetchNews()
@@ -55,7 +55,7 @@ class NewsViewModel: ObservableObject {
         self.isAllUpdate = false
     }
     
-    private func mapping(news: [NewsModelResponse.Article]) -> [NewsModelUI] {
+    func mapping(news: [NewsModelResponse.Article]) -> [NewsModelUI] {
         
         return news.compactMap { NewsModelUI(item: $0) }
     }
@@ -76,4 +76,25 @@ class NewsViewModel: ObservableObject {
         })
     }
     
+}
+
+extension NewsViewModel {
+    //Методы для тестов
+    func merge(array: [String]) -> String {
+        
+        return array.joined()
+    }
+    
+    func clear() {
+        self.isAllUpdate = false
+        self.isPaginationUpdate = false
+        self.selectorIndex = 0
+        self.page = 0
+    }
+    
+    func check(array: [String]?) -> [String]? {
+        guard let array = array else { return nil }
+        
+        return array
+    }
 }

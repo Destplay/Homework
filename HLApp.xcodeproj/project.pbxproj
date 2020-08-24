@@ -34,6 +34,7 @@
 		6456B56E2410B5C600609F0F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456B56D2410B5C600609F0F /* ViewModel.swift */; };
 		6472305E2487C49200A42A7B /* INNUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472305D2487C49200A42A7B /* INNUIView.swift */; };
 		647230602487D80400A42A7B /* INNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472305F2487D80400A42A7B /* INNViewModel.swift */; };
+		6479D43924F3F65800911617 /* HLAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6479D43824F3F65800911617 /* HLAppUITests.swift */; };
 		648C8BFE246147EF00F21627 /* MyLibraryUI in Frameworks */ = {isa = PBXBuildFile; productRef = 648C8BFD246147EF00F21627 /* MyLibraryUI */; };
 		649EFB71242B74740082D57E /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EFB70242B74740082D57E /* ServiceLocator.swift */; };
 		64BAEF2C2440943D0010131C /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BAEF1B2440943D0010131C /* APIHelper.swift */; };
@@ -60,6 +61,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		6456B553240C8DF700609F0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6456B531240C8DF600609F0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6456B538240C8DF600609F0F;
+			remoteInfo = HLApp;
+		};
+		6479D43B24F3F65800911617 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6456B531240C8DF600609F0F /* Project object */;
 			proxyType = 1;
@@ -120,6 +128,9 @@
 		6456B56D2410B5C600609F0F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		6472305D2487C49200A42A7B /* INNUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNUIView.swift; sourceTree = "<group>"; };
 		6472305F2487D80400A42A7B /* INNViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNViewModel.swift; sourceTree = "<group>"; };
+		6479D43624F3F65800911617 /* HLAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HLAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6479D43824F3F65800911617 /* HLAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLAppUITests.swift; sourceTree = "<group>"; };
+		6479D43A24F3F65800911617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		649EFB70242B74740082D57E /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		64BAEF1B2440943D0010131C /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		64BAEF1C2440943D0010131C /* URLSessionImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionImplementations.swift; sourceTree = "<group>"; };
@@ -163,6 +174,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6479D43324F3F65800911617 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64FE33AF2495BCEF001148FA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,14 +191,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		641C9C2324C6F8CA00BB4823 /* Homework 11 */ = {
+		641C9C2324C6F8CA00BB4823 /* Homework */ = {
 			isa = PBXGroup;
 			children = (
 				641C9C2D24C6F8CA00BB4823 /* Views */,
 				641C9C2624C6F8CA00BB4823 /* Model */,
 				641C9C2424C6F8CA00BB4823 /* Customs */,
 			);
-			path = "Homework 11";
+			path = Homework;
 			sourceTree = "<group>";
 		};
 		641C9C2424C6F8CA00BB4823 /* Customs */ = {
@@ -252,6 +270,7 @@
 			children = (
 				6456B53B240C8DF600609F0F /* HLApp */,
 				6456B555240C8DF700609F0F /* HLAppTests */,
+				6479D43724F3F65800911617 /* HLAppUITests */,
 				64FE33B32495BCEF001148FA /* ImageShare */,
 				6456B53A240C8DF600609F0F /* Products */,
 				648F17D124553242001BBDC1 /* Frameworks */,
@@ -264,6 +283,7 @@
 				6456B539240C8DF600609F0F /* HLApp.app */,
 				6456B552240C8DF700609F0F /* HLAppTests.xctest */,
 				64FE33B22495BCEF001148FA /* ImageShares.appex */,
+				6479D43624F3F65800911617 /* HLAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,7 +295,7 @@
 				649C15CF241DE26300005DB8 /* Homework 1 */,
 				649EFB6F242B6CB10082D57E /* Homework 3 */,
 				6472305C2487C46100A42A7B /* Homework 8 */,
-				641C9C2324C6F8CA00BB4823 /* Homework 11 */,
+				641C9C2324C6F8CA00BB4823 /* Homework */,
 				6456B53C240C8DF600609F0F /* AppDelegate.swift */,
 				6456B53E240C8DF600609F0F /* SceneDelegate.swift */,
 				64FE33932487EBEB001148FA /* String + Extension.swift */,
@@ -321,6 +341,15 @@
 				6472305F2487D80400A42A7B /* INNViewModel.swift */,
 			);
 			path = "Homework 8";
+			sourceTree = "<group>";
+		};
+		6479D43724F3F65800911617 /* HLAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6479D43824F3F65800911617 /* HLAppUITests.swift */,
+				6479D43A24F3F65800911617 /* Info.plist */,
+			);
+			path = HLAppUITests;
 			sourceTree = "<group>";
 		};
 		648F17D124553242001BBDC1 /* Frameworks */ = {
@@ -461,6 +490,24 @@
 			productReference = 6456B552240C8DF700609F0F /* HLAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6479D43524F3F65800911617 /* HLAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6479D43D24F3F65800911617 /* Build configuration list for PBXNativeTarget "HLAppUITests" */;
+			buildPhases = (
+				6479D43224F3F65800911617 /* Sources */,
+				6479D43324F3F65800911617 /* Frameworks */,
+				6479D43424F3F65800911617 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6479D43C24F3F65800911617 /* PBXTargetDependency */,
+			);
+			name = HLAppUITests;
+			productName = HLAppUITests;
+			productReference = 6479D43624F3F65800911617 /* HLAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		64FE33B12495BCEF001148FA /* ImageShare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64FE33BD2495BCEF001148FA /* Build configuration list for PBXNativeTarget "ImageShare" */;
@@ -487,7 +534,7 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = destplay;
 				TargetAttributes = {
@@ -496,6 +543,10 @@
 					};
 					6456B551240C8DF700609F0F = {
 						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 6456B538240C8DF600609F0F;
+					};
+					6479D43524F3F65800911617 = {
+						CreatedOnToolsVersion = 11.6;
 						TestTargetID = 6456B538240C8DF600609F0F;
 					};
 					64FE33B12495BCEF001148FA = {
@@ -523,6 +574,7 @@
 			targets = (
 				6456B538240C8DF600609F0F /* HLApp */,
 				6456B551240C8DF700609F0F /* HLAppTests */,
+				6479D43524F3F65800911617 /* HLAppUITests */,
 				64FE33B12495BCEF001148FA /* ImageShare */,
 			);
 		};
@@ -540,6 +592,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6456B550240C8DF700609F0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6479D43424F3F65800911617 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -611,6 +670,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6479D43224F3F65800911617 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6479D43924F3F65800911617 /* HLAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64FE33AE2495BCEF001148FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,6 +693,11 @@
 			isa = PBXTargetDependency;
 			target = 6456B538240C8DF600609F0F /* HLApp */;
 			targetProxy = 6456B553240C8DF700609F0F /* PBXContainerItemProxy */;
+		};
+		6479D43C24F3F65800911617 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6456B538240C8DF600609F0F /* HLApp */;
+			targetProxy = 6479D43B24F3F65800911617 /* PBXContainerItemProxy */;
 		};
 		64FE33BB2495BCEF001148FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -856,6 +928,46 @@
 			};
 			name = Release;
 		};
+		6479D43E24F3F65800911617 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FGXLP74S94;
+				INFOPLIST_FILE = HLAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.destplay.HLAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HLApp;
+			};
+			name = Debug;
+		};
+		6479D43F24F3F65800911617 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FGXLP74S94;
+				INFOPLIST_FILE = HLAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.destplay.HLAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HLApp;
+			};
+			name = Release;
+		};
 		64FE33BE2495BCEF001148FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -924,6 +1036,15 @@
 			buildConfigurations = (
 				6456B55F240C8DF700609F0F /* Debug */,
 				6456B560240C8DF700609F0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6479D43D24F3F65800911617 /* Build configuration list for PBXNativeTarget "HLAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6479D43E24F3F65800911617 /* Debug */,
+				6479D43F24F3F65800911617 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -42,7 +42,7 @@ class TidingsViewModel: ObservableObject {
         ServiceLocator.shared.getTidingsServices().fetchNews(parameters: parameters)
     }
     
-    private func mapping(news: [Article]) -> [TidingsModelUI] {
+    func mapping(news: [Article]) -> [TidingsModelUI] {
         
         return news.compactMap { TidingsModelUI(item: $0) }
     }
